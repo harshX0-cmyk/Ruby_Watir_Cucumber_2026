@@ -33,15 +33,15 @@ The framework automates key user flows on https://www.saucedemo.com/ including:
 ---
 
 ## Project Structure
-features/*.feature
-step_definitions/
-support/
-pages/
-modules/
-reports/
-cucumber.yml
-Gemfile
-README.md
+- features/*.feature
+- step_definitions/
+- support/
+- pages/
+- modules/
+- reports/
+- cucumber.yml
+- Gemfile
+- README.md
 
 ---
 ## Setup Instructions
