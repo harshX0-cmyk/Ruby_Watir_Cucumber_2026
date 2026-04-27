@@ -46,18 +46,19 @@ The framework automates key user flows on https://www.saucedemo.com/ including:
 ---
 ## Setup Instructions
 ### Install Ruby
-ruby -v
+`ruby -v`
 ### Install dependencies
-bundle install
+`bundle install`
 ---
+
 ## Running Tests
 ### Run specific tag
-cucumber -t @valid_login
+`cucumber -t @valid_login`
 
 ---
 
 ## ReportingHTML reports are generated at:
-reports/report.html
+* reports/report.html
 ---
 
 ## Author: Harshith Karpady
