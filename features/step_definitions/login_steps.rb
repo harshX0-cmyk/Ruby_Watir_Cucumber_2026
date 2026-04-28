@@ -15,7 +15,8 @@ end
 
 Then('I should see the inventory page') do
   @inventory_page = InventoryPage.new(@browser)
-  expect(@inventory_page.on_page?).to be(true),"Error: Expected to be on the inventory page, but the actual page is #{@browser.url}"
+  expect(@inventory_page.on_page?).to be(true), "Error: Expected to be on the inventory page, but the actual page is #{@browser.url}"
+  puts "Successfully navigated to the inventory page: #{@browser.url}"
 end
 
 Then('I should see an error message indicating invalid credentials') do
