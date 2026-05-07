@@ -55,12 +55,29 @@ The framework automates key user flows on https://www.saucedemo.com/ including:
    ### Run specific tag
     cucumber -t @valid_login
 
+## Browser Support
+
+The framework supports cross-browser execution on:
+
+- Chrome
+- Firefox
+- Microsoft Edge
+
+Examples:
+
+```
+set BROWSER=chrome && cucumber -t @valid_login
+
+set BROWSER=firefox && cucumber -t @valid_login
+
+set BROWSER=edge && cucumber -t @valid_login
+```
 ---
 
 ## Reporting
-    HTML reports are generated at:  
-    reports/report.html
+   HTML reports are generated at:  
+ `reports/report.html`
 ---
 
-### Author: Harshith Karpady
+## Author: Harshith Karpady
 
