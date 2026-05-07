@@ -1,3 +1,4 @@
+@checkout_process
 Feature: Checkout Process for the user on https://www.saucedemo.com/
 
   Background:
