@@ -4,8 +4,8 @@ source 'https://rubygems.org'
 
 # Core automation gems
 gem 'cucumber'
+gem 'selenium-webdriver'
 gem 'watir'
-gem 'webdrivers'
 
 # Debugging / testing
 gem 'pry'
