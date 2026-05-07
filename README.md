@@ -75,9 +75,9 @@ cucumber BROWSER=edge -t @valid_login
 ---
 
 ## Reporting
-   HTML reports are generated at:  
+- HTML reports are generated at:  
  `reports/report.html`
 ---
 
-## Author: Harshith Karpady
+### Author: Harshith Karpady
 
