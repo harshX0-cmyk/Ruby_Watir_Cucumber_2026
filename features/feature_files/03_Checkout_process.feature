@@ -7,7 +7,7 @@ Feature: Checkout Process for the user on https://www.saucedemo.com/
     Then I should be logged in successfully
     And I should see the inventory page
 
-  @successful_checkout
+  @successful_checkout @regression @smoke @sanity
   Scenario: User can complete the checkout process successfully
     And I add 2 products to the cart
     And I proceed to cart by clicking on the cart icon
@@ -19,7 +19,7 @@ Feature: Checkout Process for the user on https://www.saucedemo.com/
     And I confirm the order
     Then I should see a confirmation message for successful checkout
 
-  @checkout_cancellation
+  @checkout_cancellation @regression
   Scenario: User can cancel the checkout process
     When I add 1 product to the cart
     And I proceed to cart by clicking on the cart icon
@@ -30,7 +30,7 @@ Feature: Checkout Process for the user on https://www.saucedemo.com/
     And I decide to cancel the checkout process
     Then I should be redirected back to the inventory page and the cart should remain unchanged
 
-  @checkout_total_price_verification
+  @checkout_total_price_verification @regression
   Scenario: User can see the total price including taxes before confirming the order
     When I add 1 product to the cart
     And I proceed to cart by clicking on the cart icon
@@ -40,7 +40,7 @@ Feature: Checkout Process for the user on https://www.saucedemo.com/
     Then I should see the Checkout Overview page with the correct products and total price
     Then I should be able to see the total price including taxes before confirming the order
 
-  @checkout_payment_and_shipping_validation
+  @checkout_payment_and_shipping_validation @regression
   Scenario: User can see the payment and shipping information on the checkout overview page
     When I add 1 product to the cart
     And I proceed to cart by clicking on the cart icon
@@ -50,7 +50,7 @@ Feature: Checkout Process for the user on https://www.saucedemo.com/
     Then I should see the Checkout Overview page with the correct products and total price
     Then I should be able to see the payment and shipping information on the checkout overview page
 
-  @checkout_multiple_products
+  @checkout_multiple_products @regression
   Scenario: User can complete the checkout process with multiple products in the cart
     When I add 6 products to the cart
     And I proceed to cart by clicking on the cart icon

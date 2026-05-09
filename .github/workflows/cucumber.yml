@@ -1,0 +1,120 @@
+# Workflow name displayed in GitHub Actions
+name: Ruby Cucumber Watir Automation
+
+# Define workflow execution triggers
+on:
+
+  # Execute workflow automatically when code is pushed to master branch
+  push:
+    branches:
+      - master
+
+  # Allow manual execution from GitHub Actions UI
+  workflow_dispatch:
+
+  # Execute automatically every day at scheduled UTC time
+  schedule:
+    - cron: '30 8 * * 1-5'  
+
+jobs:
+
+  # Execute sanity test scenarios
+  sanity-tests:
+
+    # Use latest Windows GitHub-hosted runner
+    runs-on: windows-latest
+
+    # Environment variables available during execution
+    env:
+      BROWSER: chrome
+
+    steps:
+
+      # Download repository source code to runner machine
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Install latest stable Ruby version
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ruby
+
+      # Install all gems from Gemfile
+      - name: Install Gems
+        run: bundle install
+
+      # Execute scenarios tagged with @sanity
+      - name: Execute Sanity Tests
+        run: cucumber --format html --out reports/sanity_report.html -t @sanity
+
+      # Upload generated sanity report as downloadable artifact
+      - name: Upload Sanity Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: sanity-report
+          path: reports/sanity_report.html
+
+  # Execute smoke test scenarios
+  smoke-tests:
+
+    runs-on: windows-latest
+
+    env:
+      BROWSER: chrome
+
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ruby
+
+      - name: Install Gems
+        run: bundle install
+
+      # Execute scenarios tagged with @smoke
+      - name: Execute Smoke Tests
+        run: cucumber --format html --out reports/smoke_report.html -t @smoke
+
+      # Upload generated smoke report as downloadable artifact
+      - name: Upload Smoke Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-report
+          path: reports/smoke_report.html
+
+  # Execute regression test scenarios
+  regression-tests:
+
+    runs-on: windows-latest
+
+    env:
+      BROWSER: chrome
+
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ruby
+
+      - name: Install Gems
+        run: bundle install
+
+      # Execute scenarios tagged with @regression
+      - name: Execute Regression Tests
+        run: cucumber --format html --out reports/regression_report.html -t @regression
+
+      # Upload generated regression report as downloadable artifact
+      - name: Upload Regression Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: regression-report
+          path: reports/regression_report.html

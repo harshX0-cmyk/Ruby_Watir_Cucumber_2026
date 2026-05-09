@@ -1,7 +1,7 @@
 @login
 Feature: I am trying to the website https://www.saucedemo.com/ with valid credentials
 
-  @valid_login
+  @valid_login @regression @smoke @sanity
   Scenario: I am trying to login with valid credentials
     Given I am on the login page
     When I login to the website with "valid credentials"

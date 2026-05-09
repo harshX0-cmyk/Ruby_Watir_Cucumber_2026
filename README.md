@@ -1,4 +1,4 @@
-# Test Automation Framework – SauceDemo
+# Test Automation Framework - SauceDemo
 
 This project is a BDD test automation framework built using:
 
@@ -79,5 +79,31 @@ cucumber BROWSER=edge -t @valid_login
  `reports/report.html`
 ---
 
-### Author: Harshith Karpady
+## GitHub Actions CI/CD Integration
+
+The framework is integrated with GitHub Actions for automated cloud execution.
+
+Workflow execution flow:
+
+1. Push code changes to GitHub
+2. GitHub Actions creates a temporary Windows runner environment
+3. Repository source code is downloaded to the runner
+4. Latest Ruby version is installed automatically
+5. Required gems are installed using Bundler
+6. Cucumber test scenarios are executed based on tags
+7. HTML execution reports are generated
+8. Reports are uploaded as downloadable GitHub Actions artifacts
+
+The workflow currently supports separate execution jobs for:
+
+- @sanity
+- @smoke
+- @regression
+
+GitHub Actions workflow configuration:
+
+```text
+.github/workflows/cucumber.yml
+```
+### Author: Harshith Karpady :)
 
