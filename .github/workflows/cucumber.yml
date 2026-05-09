@@ -46,7 +46,7 @@ jobs:
 
       # Execute scenarios tagged with @sanity
       - name: Execute Sanity Tests
-        run: cucumber --format html --out reports/sanity_report.html -t @sanity
+        run: cucumber --format html --out reports/sanity_report.html -t "@sanity"
 
       # Upload generated sanity report as downloadable artifact
       - name: Upload Sanity Report
@@ -78,7 +78,7 @@ jobs:
 
       # Execute scenarios tagged with @smoke
       - name: Execute Smoke Tests
-        run: cucumber --format html --out reports/smoke_report.html -t @smoke
+        run: cucumber --format html --out reports/smoke_report.html -t "@smoke"
 
       # Upload generated smoke report as downloadable artifact
       - name: Upload Smoke Report
@@ -110,7 +110,7 @@ jobs:
 
       # Execute scenarios tagged with @regression
       - name: Execute Regression Tests
-        run: cucumber --format html --out reports/regression_report.html -t @regression
+        run: cucumber --format html --out reports/regression_report.html -t "@regression"
 
       # Upload generated regression report as downloadable artifact
       - name: Upload Regression Report
